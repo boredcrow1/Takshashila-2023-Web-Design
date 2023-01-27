@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Template</title>
+</head>
+<body>
+  <!---------------------Input Text title--------------------------->
+  <div class="text-group" title="">
+    <input type="text" name="name" required />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Title</label>
+  </div>
+
+  <!----------------------Input Datalist--------------->
+
+  <div class="text-group tell2" title="">
+    <input
+      class="tel-code"
+      type="number"
+      id="tel-country-code"
+      required
+      list="datalist-options"
+    />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label class="label-gap" id="code-label">Datalist</label>
+  </div>
+  <datalist id="datalist-options">
+    <option value="1">Example 1</option>
+    <option value="2">Example 2</option>
+    <option value="3">Example 3</option>
+    <option value="4">Example 4</option>
+  </datalist>
+
+  <!----------------Input Select Dropdown menu------------------------------>
+
+  <div class="custom-select text-group" id="prodcat" name="">
+    <select>
+      <option value="" selected disabled hidden>Dropdown</option>
+      <option value="Example 1">Example 1</option>
+      <option value="Example 2">Example 2</option>
+      <option value="Example 3">Example 3</option>
+      <option value="Example 4">Example 4</option>
+    </select>
+  </div>
+
+    <!-------------------EMAIL-------------->
+    <div class="text-group" title="">
+      <input type="text" name="email" title="" pattern="[a-zA-Z0-9.-+]+@[A-Za-z0-9 -]+\.[a-z]{2,}" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>E-mail Address</label>
+    </div>
+
+  <!----------------------------------PASSWORD---------------------------->
+
+  <div class="text-group" title="">
+    <input type="text" name="name" required />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Password</label>
+  </div>
+
+  <!-----------------------------CONFIRM-PASSWORD---------------------------->
+
+  <div class="text-group" title="">
+    <input type="text" name="confirmPassword" title="" required />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Confirm Password</label>
+  </div>
+
+
+<!----------------------------------UPDATE BTNS------------------------ -->
+
+  <div class="container">
+    <form>
+      <!-----------------------RADIO BTNS--------------------->
+      <input type="radio" name="sample" value="option1" id="option1">
+      <label for="option1">Option 1</label>
+      <input type="radio" name="sample" value="option2" id="option2">
+      <label for="option2">Option 2</label>
+      <input type="radio" name="sample" value="option3" id="option3">
+      <label for="option3">Option 3</label>
+    </form>
+  </div>
+        <!------------------------CHECKBOXES BTNS------------------------->
+  <div class="checkbox-group">
+            
+              <label class="checkbox-button">
+                <input  type="checkbox"  class="checkbox-button__input"  id="Sample2"  name="sample2"  onclick="this.value=true;"/>
+                <span class="checkbox-button__control"></span>
+                <span class="checkbox-button__label">Option-1</span>
+              </label>
+            </div>
+            <div
+              class="checkbox-group" >
+            
+              <label class="checkbox-button">
+                <input  type="checkbox"  class="checkbox-button__input"  id="Sample2"  name="sample2"  onclick="this.value=true;"/>
+                <span class="checkbox-button__control"></span>
+                <span class="checkbox-button__label">Option-2</span>
+              </label>
+            </div>
+              </label>
+            </div>
+          </div>
+</body>
+</html>
+
+
+
+
+
+
+
+<!---------------------STYLES STARTS FROM HERE------------------------------------------------>
+
+
+
+
+<style>
+
+  /* Main Style Properties */
+
+:root {
+    --col_1: #111;
+    --col_2: #fff;
+    --col_3: #b7b7b7;
+    --col_4: #afafaf;
+    --col_5: #ffffff1a;
+    --col_6: #2e2e2e;
+  }
+  body {
+    background: var(--col_1);
+  }
+
+    /* --------------------------Input Box Properties -------------------------*/
+
+    .text-group {
+        position: relative;
+        margin-top: 2vw;
+        width: 100%;
+        font-family: Inder;
+        width: 20vw;
+      }
+    
+      input {
+        font-size: 1vw;
+        padding: 1vw 1vw 1vw 1vw;
+        display: block;
+        border: none;
+        border-bottom: 1.1px solid var(--col_3);
+        background-color: transparent;
+        color: var(--col_2);
+        width: 100%;
+      }
+      input:focus {
+        outline: none;
+      }
+      .text-group label {
+        color: var(--col_4);
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 1%;
+        top: 1vw;
+    
+        left: 2%;
+        top: 0.7vw;
+    
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+        font-size: 1vw;
+      }
+
+          /*----------input box focusing ------------------------------------*/
+
+      input:focus ~ label,
+      input:valid ~ label {
+        top: -0.8vw;
+        color: var(--col_4);
+       }
+
+    /* --------------------bar styles-------------------------------*/
+
+      .bar {
+        position: relative;
+        display: block;
+      }
+      .bar:before,
+      .bar:after {
+        content: "";
+        height: 2px;
+        width: 0;
+        bottom: .3px;
+        position: absolute;
+        background: var(--col_2);
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+      }
+      .bar:before {
+        left: 50%;
+      }
+      .bar:after {
+        right: 40%;
+      }
+      input:focus ~ .bar:before,
+      input:focus ~ .bar:after {
+        width: 60%;
+        
+      }
+
+      /* --------------highlights styling----------------------- */
+
+      .highlight {
+        position: absolute;
+        height: 60%;
+        top: 25%;
+        left: 0;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+      input:focus ~ .highlight {
+        -webkit-animation: inputHighlighter 0.3s ease;
+        -moz-animation: inputHighlighter 0.3s ease;
+        animation: inputHighlighter 0.3s ease;
+      }
+      @-webkit-keyframes inputHighlighter {
+        from {
+          background: var(--col_3);
+        }
+        to {
+          width: 0;
+          background: transparent;
+        }
+      }
+      @-moz-keyframes inputHighlighter {
+        from {
+          background: var(--col_3);
+        }
+        to {
+          width: 0;
+          background: transparent;
+        }
+      }
+      @keyframes inputHighlighter {
+        from {
+          background: var(--col_3);
+        }
+        to {
+          width: 0;
+          background: transparent;
+        }
+      }
+
+
+
+
+      /* Input Datalist Properties */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        display: none;
+      }
+      /* .tel-code {
+      } */
+      .label-gap {
+        left: 0.4vw;
+      }
+      .tell2 {
+        width: 4vw;
+      }
+  
+      /* Input Custom Select Dropdown Style */
+      .custom-select {
+        font-family: Arial;
+        position: relative;
+        width: 100%;
+      }
+      .custom-select select {
+        display: none; /*hide original SELECT element: */
+      }
+      .select-selected {
+        background-color: var(--col_1);
+      }
+      .select-selected:hover {
+        background-color: var(--col_2);
+        color: var(--col_1);
+      }
+      .select-selected:after {
+        position: absolute;
+        content: "";
+        top: 18px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: var(--col_2) transparent transparent transparent;
+      }
+      .select-selected.select-arrow-active:after {
+        border-color: transparent transparent var(--col_2) transparent;
+        top: 0.7vw;
+      }
+      .select-selected:hover:after {
+        border-color: var(--col_1) transparent transparent transparent;
+      }
+      .select-selected.select-arrow-active:hover:after {
+        border-color: transparent transparent var(--col_1) transparent;
+        top: 0.7vw;
+      }
+      .select-items div,
+      .select-selected {
+        color: var(--col_2);
+        padding: 8px 16px;
+        cursor: pointer;
+        outline: none;
+        font-size: 18px;
+        padding: 10px 10px 10px 10px;
+        display: block;
+        border: none;
+        border-bottom: 2px solid var(--col_3);
+        color: var(--col_2);
+      }
+      .select-items div {
+        border-bottom: 2px solid var(--col_5);
+      }
+      .select-items {
+        position: absolute;
+        background-color: var(--col_6);
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
+      .select-hide {
+        display: none;
+      }
+      .select-items div:hover,
+      .same-as-selected {
+        background-color: var(--col_5);
+      }
+   
+          /* -----------------------CHECKBOX BTNS-----------------------------*/
+
+      .checkbox-button {
+        cursor: pointer;
+        color: var(--col_2);
+        width: fit-content;
+        display: flex;
+        align-items: center;
+      }
+    
+      input[type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+    
+      input[type="checkbox"] {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 11px 23px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 0;
+        outline: 0;
+        background-color: transparent;
+      }
+    
+      .checkbox-button__input {
+        opacity: 0;
+        position: absolute;
+        cursor: pointer;
+      }
+    
+      .checkbox-button__control {
+        position: relative;
+        display: inline-block;
+        width: 1.2vw;
+        height: 1.2vw;
+        margin-right: 0.5vw;
+        vertical-align: middle;
+        background-color: inherit;
+        color: var(--col_2);
+        border: 0.2vw solid rgba(255, 255, 255, 0.7);
+      }
+    
+      .checkbox-button__input:checked + .checkbox-button__control:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 0.6vw;
+        height: 0.6vw;
+        background-color: var(--col_2);
+      }
+    
+      .checkbox-button__input:checked + .checkbox-button__control:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0.3vw;
+        left: 0.3vw;
+        width: 0.6vw;
+        height: 0.6vw;
+        background-color: var(--col_2);
+      }
+      .checkbox-button:hover .checkbox-button__control {
+        border: 0.2vw solid var(--col_2);
+      }
+      .checkbox-button__input:checked + .checkbox-button__control {
+        border-color: var(--col_2);
+      }
+    
+      .checkbox-button__control {
+        transform: scale(0.8);
+      }
+   
+      .container {
+      margin: 1vw;
+    }
+
+       /* ---------------------------------RADIO BTNS------------------ */
+    
+    input[type="radio"] {
+      margin: 1vw;
+    }
+    
+      [type="radio"]:checked,
+      [type="radio"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+      }
+      [type="radio"]:checked + label,
+      [type="radio"]:not(:checked) + label {
+        position: relative;
+        padding-left: 1.8vw;
+        cursor: pointer;
+        line-height: 1.3vw;
+        display: inline-block;
+        color: var(--col_2);
+        font-family: OCRAq;
+        font-weight: Regular;
+        font-size: 0.9vw;
+        top: 0vw;
+      }
+      [type="radio"]:checked + label:before,
+      [type="radio"]:not(:checked) + label:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1.1vw;
+        height: 1.1vw;
+        border: 1px solid #ddd;
+        border-radius: 100%;
+        background: var(--col_1);
+      }
+      [type="radio"]:checked + label:after,
+      [type="radio"]:not(:checked) + label:after {
+        content: "";
+        width: 0.7vw;
+        height: 0.7vw;
+        background: var(--col_2);
+        position: absolute;
+        top: 0.27vw;
+        left: 0.27vw;
+        border-radius: 100%;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+      }
+      [type="radio"]:not(:checked) + label:after {
+        opacity: 0;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+      [type="radio"]:checked + label:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+</style>
+
+
+
+
+
+
+
+<!-------------------------JAVASCRIPT FROM HERE---------------------------------- -->
+
+
+
+
+
+<script>
+  // Input Custom Select Drop Down Javascript
+
+var podc = document.getElementById("prodcat2");
+var x, i, j, l, ll, selElmnt, a, b, c;
+/* Look for any elements with the class "custom-select": */
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /* For each element, create a new DIV that will act as the selected item: */
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /* For each element, create a new DIV that will contain the option list: */
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /* For each option in the original select element,
+      create a new DIV that will act as an option item: */
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function (e) {
+      /* When an item is clicked, update the original select box,
+          and the selected item: */
+      var y, i, k, s, h, sl, yl;
+      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+      sl = s.length;
+      h = this.parentNode.previousSibling;
+      var oj = this.innerHTML;
+
+      // Selected custom invoke here
+
+      for (i = 0; i < sl; i++) {
+        if (s.options[i].innerHTML == this.innerHTML) {
+          s.selectedIndex = i;
+          h.innerHTML = this.innerHTML;
+
+          y = this.parentNode.getElementsByClassName("same-as-selected");
+          yl = y.length;
+          for (k = 0; k < yl; k++) {
+            y[k].removeAttribute("class");
+          }
+          this.setAttribute("class", "same-as-selected");
+          break;
+        }
+      }
+      h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function (e) {
+    /* When the select box is clicked, close any other select boxes,
+      and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+    except the current select box: */
+  var x,
+    y,
+    i,
+    xl,
+    yl,
+    arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i);
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+
+/* If the user clicks anywhere outside the select box,
+  then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+
+</script>
+
+
+  
+
+
